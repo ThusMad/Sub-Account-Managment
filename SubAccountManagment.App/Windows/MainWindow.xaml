@@ -1,0 +1,65 @@
+﻿<Window x:Class="SubAccountManagement.App.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubAccountManagement.App.Windows"
+        xmlns:decorators="clr-namespace:SubAccountManagement.App.Windows.Decorators"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed" 
+        SourceInitialized="Window_SourceInitialized"
+        SizeChanged="Window_SizeChanged"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{DynamicResource BackgroundGapBrush}"
+        Foreground="{DynamicResource ForegroundAccentBrush}"
+        FontFamily="{DynamicResource main-regular}"
+        Title="Sub Account Manager" Height="450" Width="800">
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            CaptionHeight="0"
+            ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/Colors/ManagmentAppColors.xaml"/>
+                <ResourceDictionary Source="../Themes/Shared/ManagmentAppFonts.xaml"/>
+                <ResourceDictionary Source="../Themes/Shared/ManagmentAppButtons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <decorators:DpiDecorator>
+        <Grid Name="Grid" Width="auto" Height="auto">
+            <DockPanel 
+                x:Name="Header"
+                FlowDirection="RightToLeft" 
+                PreviewMouseLeftButtonDown="rctHeader_PreviewMouseLeftButtonDown" 
+                PreviewMouseLeftButtonUp="rctHeader_PreviewMouseLeftButtonUp" 
+                PreviewMouseMove="rctHeader_PreviewMouseMove" 
+                Background="{DynamicResource BackgroundLightBrush}" Height="28" VerticalAlignment="Top">
+                <Button Width="28" Height="28" VerticalAlignment="Top" BorderThickness="0" Cursor="Hand"
+                        HorizontalAlignment="Left" PreviewMouseLeftButtonDown="CloseClick"
+                        Style="{DynamicResource TransparentButton}">
+                    <Image Source="../Resources/AppIcon/Title/exit.png" Height="10" Width="10"/>
+                </Button>
+                <Button Width="28" Height="28" VerticalAlignment="Top" BorderThickness="0" Cursor="Hand"
+                        HorizontalAlignment="Left" PreviewMouseLeftButtonDown="ChangeStateClick"
+                        Style="{DynamicResource TransparentButton}">
+                    <Image Source="../Resources/AppIcon/Title/maximize.png" Height="10" Width="10"/>
+                </Button>
+                <Button Padding="0,8,0,0" Width="28" Height="28" VerticalAlignment="Top" Cursor="Hand"
+                        HorizontalAlignment="Left" PreviewMouseLeftButtonDown="MinimizeClick"
+                        Style="{DynamicResource TransparentButton}">
+                    <Image Source="../Resources/AppIcon/Title/minimize.png" Height="10" Width="10"/>
+                </Button>
+
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <TextBlock Padding="0,2,0,0" VerticalAlignment="Center" FontWeight="DemiBold" FontSize="16"> Sub Account Managment</TextBlock>
+                    <Image Margin="10,2,12,0" Height="18" Width="18" Source="../Resources/AppIcon/Title/binance_logo.png"/>
+                </StackPanel>
+            </DockPanel>
+        </Grid>
+    </decorators:DpiDecorator>
+</Window>
