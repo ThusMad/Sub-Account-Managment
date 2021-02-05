@@ -1,24 +1,43 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="BackgroundColor">#1E2026</Color>
-    <Color x:Key="BackgroundColorLight">#2A2F36</Color>
-    <Color x:Key="BackgroundColorGap">#14151A</Color>
+    <Color x:Key="BackgroundColorDark">#1E2026</Color>
+    <Color x:Key="BackgroundColorDarkContrast">#2A2F36</Color>
+    <Color x:Key="BackgroundColorDarkGap">#14151A</Color>
 
-    <Color x:Key="ForegroundColorAccent">#F0B90B</Color>
-    
+    <Color x:Key="BackgroundColorLight">#FAFAFA</Color>
+    <Color x:Key="BackgroundColorLightContrast">#eaeaea</Color>
+    <Color x:Key="BackgroundColorLightGap">#eaeaea</Color>
+
+    <Color x:Key="ColorAccent">#F0B90B</Color>
+    <Color x:Key="ColorHint">#929AA5</Color>
+    <Color x:Key="ColorAccept">#2ED191</Color>
+    <Color x:Key="ColorDeny">#FF4265</Color>
+
+   
+    <SolidColorBrush 
+        x:Key="TopBarIconColor" 
+        Color="{DynamicResource BackgroundColorLightContrast}" />
     <SolidColorBrush 
         x:Key="BackgroundBrush" 
-        Color="{DynamicResource BackgroundColor}" />
+        Color="{DynamicResource BackgroundColorDark}" />
     <SolidColorBrush 
         x:Key="BackgroundLightBrush" 
-        Color="{DynamicResource BackgroundColorLight}" />
+        Color="{DynamicResource BackgroundColorDarkContrast}" />
     <SolidColorBrush 
         x:Key="BackgroundGapBrush" 
-        Color="{DynamicResource BackgroundColorGap}" />
-
+        Color="{DynamicResource BackgroundColorDarkGap}" />
     <SolidColorBrush 
-        x:Key="ForegroundAccentBrush" 
-        Color="{DynamicResource ForegroundColorAccent}" />
+        x:Key="AccentBrush" 
+        Color="{DynamicResource ColorAccent}" />
+    <SolidColorBrush 
+        x:Key="HintBrush" 
+        Color="{DynamicResource ColorHint}" />
+    <SolidColorBrush 
+        x:Key="AcceptBrush" 
+        Color="{DynamicResource ColorAccept}" />
+    <SolidColorBrush 
+        x:Key="DenyBrush" 
+        Color="{DynamicResource ColorDeny}" />
 
 </ResourceDictionary>

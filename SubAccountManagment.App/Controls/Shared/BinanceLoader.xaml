@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="SubAccountManagement.App.Controls.Shared.BinanceLoader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SubAccountManagement.App.Controls.Shared"
+             xmlns:wrappers="clr-namespace:SubAccountManagement.App.Controls.Wrappers"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Themes/Colors/ManagmentAppColors.xaml"/>
+                <ResourceDictionary Source="../../Resources/AppIcon/Title/TitleIcons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="180*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="480*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <ProgressBar
+            Style="{StaticResource MaterialDesignCircularProgressBar}"
+            Foreground="{DynamicResource AccentBrush}"
+            Value="35"
+            Width="auto"
+            Height="auto"
+            IsIndeterminate="True" Grid.ColumnSpan="3" Grid.RowSpan="3" />
+        <wrappers:IconWrapper 
+            Width="auto"
+            Height="auto"
+            Group="{DynamicResource BinanceLogoDrawingGroup}" 
+            Color="{DynamicResource AccentBrush}" Grid.Column="1" Margin="0" Grid.Row="1"/>
+    </Grid>
+</UserControl>

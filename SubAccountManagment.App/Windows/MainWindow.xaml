@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubAccountManagement.App.Windows"
         xmlns:decorators="clr-namespace:SubAccountManagement.App.Windows.Decorators"
+        xmlns:wrappers="clr-namespace:SubAccountManagement.App.Controls.Wrappers"
+        xmlns:setup="clr-namespace:SubAccountManagement.App.Controls.Setup"
+        xmlns:errorPages="clr-namespace:SubAccountManagement.App.Pages.ErrorPages"
+        xmlns:navigation="clr-namespace:SubAccountManagement.App.Controls.Navigation"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Closed="Window_Closed" 
@@ -13,9 +17,10 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="{DynamicResource BackgroundGapBrush}"
-        Foreground="{DynamicResource ForegroundAccentBrush}"
+        Foreground="{DynamicResource AccentBrush}"
         FontFamily="{DynamicResource main-regular}"
-        Title="Sub Account Manager" Height="450" Width="800">
+        Title="Sub Account Manager"
+        SizeToContent="Manual">
     <WindowChrome.WindowChrome>
         <WindowChrome 
             CaptionHeight="0"
@@ -27,6 +32,8 @@
                 <ResourceDictionary Source="../Themes/Colors/ManagmentAppColors.xaml"/>
                 <ResourceDictionary Source="../Themes/Shared/ManagmentAppFonts.xaml"/>
                 <ResourceDictionary Source="../Themes/Shared/ManagmentAppButtons.xaml"/>
+                <ResourceDictionary Source="../Resources/AppIcon/Title/TitleIcons.xaml"/>
+                <ResourceDictionary Source="../Resources/AppIcon/Title/ExternalIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -38,28 +45,47 @@
                 PreviewMouseLeftButtonDown="rctHeader_PreviewMouseLeftButtonDown" 
                 PreviewMouseLeftButtonUp="rctHeader_PreviewMouseLeftButtonUp" 
                 PreviewMouseMove="rctHeader_PreviewMouseMove" 
-                Background="{DynamicResource BackgroundLightBrush}" Height="28" VerticalAlignment="Top">
-                <Button Width="28" Height="28" VerticalAlignment="Top" BorderThickness="0" Cursor="Hand"
+                Background="{DynamicResource BackgroundGapBrush}" Height="22" VerticalAlignment="Top">
+                <Button Width="22" Height="22" VerticalAlignment="Top" BorderThickness="0" Cursor="Hand"
                         HorizontalAlignment="Left" PreviewMouseLeftButtonDown="CloseClick"
                         Style="{DynamicResource TransparentButton}">
-                    <Image Source="../Resources/AppIcon/Title/exit.png" Height="10" Width="10"/>
+                    <wrappers:IconWrapper  Height="14" Width="14"
+                                           Group="{StaticResource ExitDrawingGroup}" 
+                                           Color="{DynamicResource TopBarIconColor}" />
                 </Button>
-                <Button Width="28" Height="28" VerticalAlignment="Top" BorderThickness="0" Cursor="Hand"
+                <Button Width="22" Height="22" VerticalAlignment="Top" Cursor="Hand"
                         HorizontalAlignment="Left" PreviewMouseLeftButtonDown="ChangeStateClick"
                         Style="{DynamicResource TransparentButton}">
-                    <Image Source="../Resources/AppIcon/Title/maximize.png" Height="10" Width="10"/>
+                    <wrappers:IconWrapper  Height="14" Width="14"
+                                           Group="{StaticResource MaximizeDrawingGroup}" 
+                                           Color="{DynamicResource TopBarIconColor}" />
                 </Button>
-                <Button Padding="0,8,0,0" Width="28" Height="28" VerticalAlignment="Top" Cursor="Hand"
+                <Button Width="22" Height="22" VerticalAlignment="Top" Cursor="Hand" Padding="0,0,0,-1.5"
                         HorizontalAlignment="Left" PreviewMouseLeftButtonDown="MinimizeClick"
                         Style="{DynamicResource TransparentButton}">
-                    <Image Source="../Resources/AppIcon/Title/minimize.png" Height="10" Width="10"/>
+                    <wrappers:IconWrapper  Height="12" Width="10"
+                                           Group="{DynamicResource MinimizeDrawingGroup}" 
+                                           Color="{DynamicResource TopBarIconColor}" />
                 </Button>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                    <TextBlock Padding="0,2,0,0" VerticalAlignment="Center" FontWeight="DemiBold" FontSize="16"> Sub Account Managment</TextBlock>
-                    <Image Margin="10,2,12,0" Height="18" Width="18" Source="../Resources/AppIcon/Title/binance_logo.png"/>
+                    <TextBlock Padding="0,2,10,0" VerticalAlignment="Center" FontWeight="DemiBold" FontSize="12"> Sub Account Management</TextBlock>
+                    <wrappers:IconWrapper  Margin="0,0,10,0"
+                                            Height="15" Width="15"
+                                           Group="{DynamicResource BinanceLogoDrawingGroup}" 
+                                           Color="{DynamicResource AccentBrush}" />
                 </StackPanel>
             </DockPanel>
+            <Grid Margin="0,23,0,0">
+                <!--<setup:AppSetupControl />-->
+                <Border CornerRadius="8,0,0, 0" Background="{DynamicResource BackgroundBrush}" Margin="220,0,0,0">
+                    <Grid>
+
+                    </Grid>
+                </Border>
+                <navigation:AccountListControl HorizontalAlignment="Left" Width="auto" Margin="10,0,0,0" />
+                <!--<errorPages:ErrorPageInterceptor  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
+            </Grid>
         </Grid>
     </decorators:DpiDecorator>
 </Window>
