@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:navigation="clr-namespace:SubAccountManagement.App.Controls.Navigation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.expander.xaml"/>
+        <ResourceDictionary Source="../Colors/ManagmentAppColors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="AppExpander" TargetType="Expander" BasedOn="{StaticResource MaterialDesignExpander}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding 
+                            RelativeSource={RelativeSource 
+                            Mode=FindAncestor,
+                            AncestorLevel=1,
+                            AncestorType={x:Type navigation:AccountControl}},
+                            Path=Count}" Value="0">
+                <Setter Property="Foreground" Value="Transparent" />
+            </DataTrigger>
+        </Style.Triggers>
+        <Style.Setters>
+            <Setter Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+        </Style.Setters>
+    </Style>
+
+</ResourceDictionary>

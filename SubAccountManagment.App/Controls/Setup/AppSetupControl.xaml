@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SubAccountManagement.App.Controls.Setup.AppSetupControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SubAccountManagement.App.Controls.Setup"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:SubAccountManagement.App.ViewModels.Setup"
+             xmlns:wrappers="clr-namespace:SubAccountManagement.App.Controls.Wrappers"
+             xmlns:shared="clr-namespace:SubAccountManagement.App.Controls.Shared"
+             xmlns:errorPages="clr-namespace:SubAccountManagement.App.Pages.ErrorPages"
+             mc:Ignorable="d" 
+             MinHeight="450" MinWidth="800">
+    <UserControl.DataContext>
+        <vm:AppSetupViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Themes/Colors/ManagmentAppColors.xaml"/>
+                <ResourceDictionary Source="../../Themes/Shared/ManagmentAppFonts.xaml"/>
+                <ResourceDictionary Source="../../Themes/Shared/ManagmentAppButtons.xaml"/>
+                <ResourceDictionary Source="../../Resources/AppIcon/Title/TitleIcons.xaml"/>
+                <ResourceDictionary Source="../../Resources/AppIcon/Title/ExternalIcons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <shared:BinanceLoader  Visibility="{Binding Path=LoaderVisibility}"
+                               Width="50"
+                               Height="50" />
+    </Grid>
+</UserControl>
